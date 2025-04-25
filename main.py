@@ -5,7 +5,7 @@ from sqlalchemy.ext.asyncio import create_async_engine
 from admin import setup_admin
 import sqladmin
 import os
-from .routes.prompt_test import router as prompt_test
+from routes.prompt_test import router as prompt_test
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 if not DATABASE_URL:

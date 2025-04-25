@@ -8,12 +8,14 @@ import os
 from routes.prompt_test import router as prompt_test
 
 DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    raise RuntimeError("DATABASE_URL environment variable not set")
 
 engine = create_async_engine(DATABASE_URL)
 
 app = FastAPI()
 
-app.include_router(prompt_test.router)
+app.include_router(prompt_test)
 
 # Serve SQLAdmin statics
 app.mount(

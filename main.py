@@ -5,12 +5,15 @@ from sqlalchemy.ext.asyncio import create_async_engine
 from admin import setup_admin
 import sqladmin
 import os
+from routes import prompt_test
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_async_engine(DATABASE_URL)
 
 app = FastAPI()
+
+app.include_router(prompt_test.router)
 
 # Serve SQLAdmin statics
 app.mount(

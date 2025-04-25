@@ -7,7 +7,7 @@ from fastapi import FastAPI
 from sqladmin import Admin
 from starlette.staticfiles import StaticFiles
 from sqlalchemy.ext.asyncio import create_async_engine
-from ai_agent.admin_panel.app.admin import setup_admin
+from app.admin import setup_admin
 import sqladmin
 from app.routes.prompt_test import router as prompt_test
 

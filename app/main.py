@@ -7,9 +7,9 @@ from fastapi import FastAPI
 from sqladmin import Admin
 from starlette.staticfiles import StaticFiles
 from sqlalchemy.ext.asyncio import create_async_engine
-from admin import setup_admin
+from ai_agent.admin_panel.app.admin import setup_admin
 import sqladmin
-from routes.prompt_test import router as prompt_test
+from app.routes.prompt_test import router as prompt_test
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 engine = create_async_engine(DATABASE_URL)

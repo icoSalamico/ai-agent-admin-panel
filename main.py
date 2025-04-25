@@ -1,16 +1,17 @@
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from fastapi import FastAPI
 from sqladmin import Admin
 from starlette.staticfiles import StaticFiles
 from sqlalchemy.ext.asyncio import create_async_engine
 from admin import setup_admin
 import sqladmin
-import os
 from routes.prompt_test import router as prompt_test
 
 DATABASE_URL = os.getenv("DATABASE_URL")
-if not DATABASE_URL:
-    raise RuntimeError("DATABASE_URL environment variable not set")
-
 engine = create_async_engine(DATABASE_URL)
 
 app = FastAPI()
